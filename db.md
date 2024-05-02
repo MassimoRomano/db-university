@@ -21,6 +21,7 @@ Pensiamo a quali entità (tabelle) creare per il nostro database e cerchiamo poi
 - id | INDEX | PK | NOT NULL | AI | UNIQUE | BIGINT
 - title | VARCHAR(255) | NOT NULL
 - length | VARCHAR(15) | NULL
+- department_id | FK
 
 # Table name: courses
 
@@ -28,11 +29,15 @@ Pensiamo a quali entità (tabelle) creare per il nostro database e cerchiamo poi
 - title | VARCHAR(150) | NOT NULL
 - hours | TINYINT | NULL
 - start_date | DATE | NULL
+- degree_id | FK
+- teacher_id
 
 # Table name: appeals
 
 - id | INDEX | PK | AI | UNIQUE | BIGINT
 - date | DATETIME | NOT NULL
+- student_id | FK
+- registration_id | FK
 
 # Table name: students
 - id | INDEX | PK | AI | UNIQUE | BIGINT
@@ -41,9 +46,20 @@ Pensiamo a quali entità (tabelle) creare per il nostro database e cerchiamo poi
 - email | VARCHAR(255) | NOT NULL
 - birthday| DATE | NULL
 - student_id_number | VARCHAR(6) | NOT NULL
+- degree_id |FK
+- exame_id | FK
 
 # Table name: exame_registration
 - id | INDEX | PK | AI | UNIQUE | BIGINT
 - vote | TINYINT | NOT NULL
+- student_id | FK
+- appel_id | FK
 
-ciao
+
+# Table name: teachers
+- id | INDEX | PK | AI | UNIQUE | BIGINT
+- name | VARCHAR(100) | NOT NULL
+- lastname | VARCHAR(100) | NULL
+- email | VARCHAR(255) | NULL
+- course_id | FK
+
